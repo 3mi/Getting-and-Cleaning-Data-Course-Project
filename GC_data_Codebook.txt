@@ -1,0 +1,27 @@
+Getting and Cleaning Data Course Project CodeBook
+This file describes the variables, the data, and any transformations or work performed to clean up the data.
+
+The site where the data was obtained:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The data for the project:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+The run_analysis.R script performs the following steps to clean the data:
+
+1. Read X_train.txt, y_train.txt and subject_train.txt from the "./UCI HAR Dataset/train/" folder and Merge them in data frama train.
+2. Read X_test.txt, y_test.txt and subject_test.txt from the "./UCI HAR Dataset/test" folder and Merge them in data frame test.
+3. Combine the train en test dataset in a dataframe Total_dataset. And store a copy in the data frame CleanedData.
+4. 
+	a. Read the features.txt file from the "./UCI HAR Dataset/" folder and store the data in data frame features. 
+        b. Use the data frame features to name the columns, also include the column names "activity" and "subject_id". 
+	c. Make the columns names R-proof.
+	c. Subset the data frame CleanedData with the columns subject_id, activity and the columns for measurements of the mean and standard deviation (68 columns).
+
+5. Clean the column names of the subset. Remove the "." symbols and lowercase all the column names.
+6. Read the activity_labels.txt file from the "./UCI HAR Dataset/" folder and store the data in data frame activity. There are 6 kinds of activity.
+7. Clean the activity names in the second column of activity. Remove the underscores an lowercase the column names.
+8. Transform the values of columns activity according to the activity data frame.
+10.Write the cleanedData out to "CleanedData.txt" file in current working directory.
+11.Create a second independent tidy data set with the average of each measurement for each activity and each subject. 
+   Write the result out to "CleanedDataSummary.txt" file in current working directory.
